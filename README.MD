@@ -3,7 +3,7 @@ A repository containing a multitude of data structures and algorithms for practi
 Created wholly in C++.
 
 Data Structures to be implemented:
-- [ ] Stack
+- [X] Stack
 - [ ] Linked List
 - [ ] Queue
 - [ ] "Python"-esque list
