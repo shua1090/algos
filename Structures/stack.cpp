@@ -1,21 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-
-template <class c>
-class stack{
-    private:
-        int length;
-        c* head;
-        int current;
-    public:
-        stack(c length);
-        ~stack();
-        int size();
-        int push(c element);
-        c pop();
-        c operator[] (int index) const;
-        operator std::string() const;
-};
+#include "dataStructs.hpp"
 
 template <class c>
 stack<c>::stack(c length) {
@@ -37,6 +22,7 @@ int stack<c>::size() {
 template <class c>
 int stack<c>::push(c element) {
     if (this->current >= this->length){
+        throw std::out_of_range("Pushing is impossible due to lack of allocated storage; Please reallocate the stack or pop.");
         return 1;
     } else {
         *(this->head+this->current) = element;
@@ -46,7 +32,7 @@ int stack<c>::push(c element) {
 }
 
 template <class c>
-c stack<c>::pop() {
+c stack<c>::pop () {
     printf("Popping");
     c result = head[--current];
     head[this->current] = (c) NULL;
@@ -54,8 +40,8 @@ c stack<c>::pop() {
 }
 
 template <class c>
-c stack<c>::operator[] (int index) const {
-    if (index > this->current || index < 0){
+c stack<c>::peek(int index) const {
+    if (index > this->length || index < 0) {
         throw std::out_of_range("Unfortunately, your given Index was out of the valid range");
     } else {
         return head[index];
@@ -63,25 +49,32 @@ c stack<c>::operator[] (int index) const {
 }
 
 template <class c>
-stack<c>::operator std::string() const {
-    return "Test";
+c stack<c>::operator[] (int index) const {
+    peek(index);
 }
+
+template <class c>
+int stack<c>::search(c obj) const{
+    for (int i = 0; i < this->current; i++){
+        if (head[i] == obj){
+            return i;
+        } else {
+            continue;
+        }
+    }
+    return -1; // Could not find the object with current method.
+}
+
+// template <class c>
+// std::string stack<c>::toString () const {
+//     return std::string("Stack object with head at ") + std::string(this->head) + std::string(" and size of ") + std::to_string(this->length);
+// }
 
 // Testing only
 int main(){
     stack<int> f(10);
-    printf("%d\n", f.size());
-    f.push(5);
-    f.push(10);
-    for (int i = 0; i < f.size()-1; i++){
-        printf("%d element is %d\n", i, f[i]);
-    }
-
-    printf("Popped value is %d\n", f.pop());
-
-    printf("After Pop\n");
-    for (int i = 0; i < f.size()-1; i++){
-        printf("%d element is %d\n", i, f[i]);
+    for (int i = 1; i < 11; i++){
+        f.push(i);
     }
 
     return 0;
