@@ -27,6 +27,39 @@ class stack{
         std::string toString() const;
 };
 
+/*
+Queue Class for FIFO
+*/
+template <class cls>
+class queue{
+    public:
+        queue();
+        ~queue();
+
+        dequeue();
+        enqueue();
+};
+
+/*
+Linked List Implementation
+*/
+template <class cls>
+class linked_list{
+    struct linked_node{
+            cls* next_pointer;
+            cls data;
+    };
+
+    public:
+        linkedlist();
+        linkedlist(cls[]);
+        ~linkedlist();
+
+};
+
+/*
+Hash Table Implementation
+*/
 template <class keycls, class valcls>
 class HashTable{
     private:
