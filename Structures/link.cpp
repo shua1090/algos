@@ -86,17 +86,17 @@ struct LinkedList {
     }
 };
 
-int main() {
-    Node* head = new Node(10);
-    LinkedList nums(head);
-    nums.print();
+// int main() {
+//     Node* head = new Node(10);
+//     LinkedList nums(head);
+//     nums.print();
 
-    nums.append(5);
-    nums.append(500);
-    nums.append(25);
-    nums.insert(4, 12);
+//     nums.append(5);
+//     nums.append(500);
+//     nums.append(25);
+//     nums.insert(4, 12);
 
-    nums.print();
+//     nums.print();
 
-    std::cout << nums[1] << std::endl;
-}
+//     std::cout << nums[1] << std::endl;
+// }

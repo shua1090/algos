@@ -1,5 +1,5 @@
 #include "dataStructs.hpp"
-#include <cstdlib>
+
 
 template <class cls>
 stack<cls>::stack(cls length) {
@@ -38,14 +38,14 @@ cls stack<cls>::pop () {
     return result;
 }
 
-template <class cls>
-cls stack<cls>::peek(int index) const {
-    if (index > this->length || index < 0) {
-        throw std::out_of_range("Unfortunately, your given Index was out of the valid range");
-    } else {
-        return this->head[index];
-    }
-}
+// template <class cls>
+// cls stack<cls>::peek(int index) const {
+//     if (index > this->length || index < 0) {
+//         throw std::exception("Unfortunately, your given Index was out of the valid range");
+//     } else {
+//         return this->head[index];
+//     }
+// }
 
 template <class cls>
 cls stack<cls>::operator[] (int index) const {
